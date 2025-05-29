@@ -9,7 +9,7 @@ clean:
 	rm -f *.zip
 
 build: clean po/folder-search-provider.pot
-	gnome-extensions pack ./
+	gnome-extensions pack --extra-source=./provider.js ./
 
 local: build
 	gnome-extensions install -f *.zip
