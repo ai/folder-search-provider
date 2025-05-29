@@ -12,4 +12,12 @@ export default class FolderSearchProviderExtension extends Extension {
   enable() {
     this._settings = this.getSettings()
   }
+
+  getSearchFolder() {
+    return this._settings ? this._settings.get_string('search-folder') : ''
+  }
+
+  getApplication() {
+    return this._settings ? this._settings.get_string('application') : ''
+  }
 }

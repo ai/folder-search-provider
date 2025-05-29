@@ -1,5 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <schemalist>
-  <schema id="org.gnome.shell.extensions.folder-search-provider" path="/org/gnome/shell/extensions/folder-search-provider/">
+  <schema
+    id="org.gnome.shell.extensions.folder-search-provider"
+    path="/org/gnome/shell/extensions/folder-search-provider/"
+  >
+    <key name="search-folder" type="s">
+      <default>""</default>
+      <summary>Folder to search for subfolders</summary>
+    </key>
+    <key name="application" type="s">
+      <default>""</default>
+      <summary>Application to run with selected subfolder</summary>
+    </key>
   </schema>
 </schemalist>
