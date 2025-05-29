@@ -13,3 +13,6 @@ build: clean po/folder-search-provider.pot
 
 local: build
 	gnome-extensions install -f *.zip
+
+debug: local
+	dbus-run-session -- gnome-shell --nested --wayland
