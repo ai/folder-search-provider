@@ -1,3 +1,4 @@
+import Shell from 'gi://Shell'
 import { Extension } from 'resource:///org/gnome/shell/extensions/extension.js'
 
 export default class FolderSearchProviderExtension extends Extension {
@@ -13,11 +14,14 @@ export default class FolderSearchProviderExtension extends Extension {
     this._settings = this.getSettings()
   }
 
-  getSearchFolder() {
-    return this._settings ? this._settings.get_string('search-folder') : ''
+  getRoot() {
+    return this._settings ? this._settings.get_string('root') : false
   }
 
-  getApplication() {
-    return this._settings ? this._settings.get_string('application') : ''
+  getApp() {
+    if (!this._settings) return false
+    let appId = this._settings.get_string('application-id')
+    if (appId === '') return false
+    return Shell.AppSystem.get_default().lookup_app(appId)
   }
 }

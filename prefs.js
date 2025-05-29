@@ -26,7 +26,7 @@ export default class FolderSearchProviderPreferences extends ExtensionPreference
     })
 
     let folderLabel = new Gtk.Label({
-      label: settings.get_string('search-folder') || _('No folder selected'),
+      label: settings.get_string('root') || _('No folder selected'),
       css_classes: ['dim-label'],
       ellipsize: 3,
       valign: Gtk.Align.CENTER
@@ -56,7 +56,7 @@ export default class FolderSearchProviderPreferences extends ExtensionPreference
       dialog.add_button(_('Cancel'), Gtk.ResponseType.CANCEL)
       dialog.add_button(_('Select'), Gtk.ResponseType.ACCEPT)
 
-      let currentFolder = settings.get_string('search-folder')
+      let currentFolder = settings.get_string('root')
       if (currentFolder) {
         try {
           dialog.set_current_folder(Gtk.Gio.File.new_for_path(currentFolder))
@@ -67,7 +67,7 @@ export default class FolderSearchProviderPreferences extends ExtensionPreference
         if (response === Gtk.ResponseType.ACCEPT) {
           let folder = dialog.get_file()
           let path = folder.get_path()
-          settings.set_string('search-folder', path)
+          settings.set_string('root', path)
           folderLabel.set_text(path)
         }
 
@@ -80,23 +80,23 @@ export default class FolderSearchProviderPreferences extends ExtensionPreference
 
     let appRow = new Adw.EntryRow({
       title: _('App ID to run with selected folder'),
-      text: settings.get_string('application')
+      text: settings.get_string('application-id')
     })
     appRow.set_show_apply_button(true)
 
     group.add(appRow)
 
-    settings.connect('changed::search-folder', () => {
-      let path = settings.get_string('search-folder')
+    settings.connect('changed::root', () => {
+      let path = settings.get_string('root')
       folderLabel.set_text(path || _('No folder selected'))
     })
 
     appRow.connect('apply', () => {
-      settings.set_string('application', appRow.get_text())
+      settings.set_string('application-id', appRow.get_text())
     })
 
     appRow.connect('entry-activated', () => {
-      settings.set_string('application', appRow.get_text())
+      settings.set_string('application-id', appRow.get_text())
     })
   }
 }

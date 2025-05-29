@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-29 21:38+0900\n"
+"POT-Creation-Date: 2025-05-29 22:05+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,22 +25,22 @@ msgstr ""
 msgid "Choose"
 msgstr ""
 
-#: prefs.js:29 prefs.js:95
+#: prefs.js:29 prefs.js:91
 msgid "No folder selected"
 msgstr ""
 
-#: prefs.js:51
+#: prefs.js:50
 msgid "Select Search Folder"
 msgstr ""
 
-#: prefs.js:57
+#: prefs.js:56
 msgid "Cancel"
 msgstr ""
 
-#: prefs.js:58
+#: prefs.js:57
 msgid "Select"
 msgstr ""
 
-#: prefs.js:86
+#: prefs.js:82
 msgid "App ID to run with selected folder"
 msgstr ""
