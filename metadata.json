@@ -1,0 +1,13 @@
+{
+  "name": "Folder Search Provider",
+  "description": "Search for projects in folder and run any selected app like IDE",
+  "url": "https://github.com/ai/folder-search-provider",
+  "uuid": "folder-search-provider@sitnik.ru",
+  "shell-version": ["48"],
+  "settings-schema": "org.gnome.shell.extensions.folder-search-provider",
+  "gettext-domain": "folder-search-provider",
+  "donations": {
+    "github": "ai"
+  },
+  "version": 57
+}
