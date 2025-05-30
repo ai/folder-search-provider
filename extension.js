@@ -1,5 +1,5 @@
 import Gio from 'gi://Gio'
-import * as Main from 'resource:///org/gnome/shell/ui/main.js'
+import { overview } from 'resource:///org/gnome/shell/ui/main.js'
 import Shell from 'gi://Shell'
 import { Extension } from 'resource:///org/gnome/shell/extensions/extension.js'
 import FolderProvider from './provider.js'
@@ -11,7 +11,7 @@ export default class FolderSearchProviderExtension extends Extension {
   enable() {
     this._settings = this.getSettings()
     this._provider = new FolderProvider(this)
-    Main.overview.searchController.addProvider(this._provider)
+    overview.searchController.addProvider(this._provider)
   }
 
   disable() {
@@ -19,7 +19,7 @@ export default class FolderSearchProviderExtension extends Extension {
       this._settings = null
     }
     if (this._provider) {
-      Main.overview.searchController.removeProvider(this._provider)
+      overview.searchController.removeProvider(this._provider)
       this._provider = null
     }
   }
