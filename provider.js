@@ -1,4 +1,3 @@
-import Glib from 'gi://GLib'
 import Gio from 'gi://Gio'
 
 export default class FolderProvider {
@@ -10,10 +9,9 @@ export default class FolderProvider {
   activateResult(folder) {
     let root = this.extension.getRoot()
     let app = this.extension.getApp()
-    if (app) {
+    if (app && root) {
       try {
-        const path = this._resolveHomePath(root + folder)
-        this.app.app_info.launch([Gio.file_new_for_path(path)], null)
+        app.app_info.launch([root.get_child(folder)], null)
       } catch (e) {
         console.error(e)
       }
@@ -50,8 +48,7 @@ export default class FolderProvider {
   _loadFolders(root) {
     let result = []
     try {
-      let rootFile = Gio.File.new_for_path(root)
-      let enumerator = rootFile.enumerate_children(
+      let enumerator = root.enumerate_children(
         'standard::name,standard::type',
         Gio.FileQueryInfoFlags.NONE,
         null
@@ -69,9 +66,5 @@ export default class FolderProvider {
     } finally {
       return result
     }
-  }
-
-  _resolveHomePath(path) {
-    return path.replace(/^~/, Glib.get_home_dir())
   }
 }

@@ -1,3 +1,4 @@
+import Gio from 'gi://Gio'
 import * as Main from 'resource:///org/gnome/shell/ui/main.js'
 import Shell from 'gi://Shell'
 import { Extension } from 'resource:///org/gnome/shell/extensions/extension.js'
@@ -24,7 +25,10 @@ export default class FolderSearchProviderExtension extends Extension {
   }
 
   getRoot() {
-    return this._settings ? this._settings.get_string('root') : false
+    if (!this._settings) return false
+    let root = this._settings.get_string('root')
+    if (root === '') return false
+    return Gio.File.new_for_path(root)
   }
 
   getApp() {
