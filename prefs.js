@@ -130,7 +130,7 @@ export default class FolderSearchProviderPreferences extends ExtensionPreference
     page.add(
       new Adw.PreferencesGroup({
         description: _(
-          'App ID is filename of .desktop files in:\n/usr/share/applications/\n/var/lib/flatpak/exports/share/applications/\n~/.local/share/applications/\n\nUse the Pins app to check the app ID or create app for custom script.'
+          'App ID is filename of .desktop files in:\n/usr/share/applications/\n/var/lib/flatpak/exports/share/applications/\n~/.local/share/applications/\n\nUse the Pins app to create app for custom script.'
         )
       })
     )

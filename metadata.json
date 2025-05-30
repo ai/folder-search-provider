@@ -1,6 +1,6 @@
 {
   "name": "Folder Search Provider",
-  "description": "Search for projects in folder and run any selected app like IDE",
+  "description": "Add to GNOME system search a quick way to run any of your projects in specific IDE",
   "url": "https://github.com/ai/folder-search-provider",
   "uuid": "folder-search-provider@sitnik.ru",
   "shell-version": ["48"],
