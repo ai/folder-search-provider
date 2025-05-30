@@ -1,4 +1,5 @@
 import Adw from 'gi://Adw'
+import Gio from 'gi://Gio'
 import Gtk from 'gi://Gtk'
 import {
   gettext as _,
@@ -39,7 +40,6 @@ export default class FolderSearchProviderPreferences extends ExtensionPreference
       })
     )
     folderBox.append(folderButton)
-
     folderRow.add_suffix(folderBox)
     group.add(folderRow)
 
@@ -78,26 +78,54 @@ export default class FolderSearchProviderPreferences extends ExtensionPreference
       dialog.present()
     })
 
-    let appRow = new Adw.EntryRow({
-      title: _('App ID to run with selected folder'),
-      text: settings.get_string('application-id')
-    })
-    appRow.set_show_apply_button(true)
-
-    group.add(appRow)
-
     settings.connect('changed::root', () => {
       let path = settings.get_string('root')
       folderLabel.set_text(path || _('No folder selected'))
     })
 
-    appRow.connect('apply', () => {
-      settings.set_string('application-id', appRow.get_text())
+    let appRow = new Adw.EntryRow({
+      title: _('App ID to run with selected folder'),
+      text: settings.get_string('application-id')
     })
+    appRow.set_show_apply_button(true)
+    group.add(appRow)
 
-    appRow.connect('entry-activated', () => {
-      settings.set_string('application-id', appRow.get_text())
+    let appError = new Gtk.Label({
+      css_classes: ['error'],
+      wrap: true,
+      visible: false,
+      margin_start: 12,
+      margin_end: 12,
+      margin_top: 6,
+      xalign: 0
     })
+    group.add(appError)
+
+    function validateAppId(appId) {
+      if (appId.trim() === '') {
+        appError.set_visible(false)
+        return true
+      }
+
+      if (!Gio.DesktopAppInfo.new(appId + '.desktop')) {
+        appError.set_text(_('Application not found. Check app ID guide below.'))
+        appError.set_visible(true)
+        return false
+      } else {
+        appError.set_visible(false)
+        return true
+      }
+    }
+
+    function update() {
+      let appId = appRow.get_text()
+      if (validateAppId(appId)) {
+        settings.set_string('application-id', appId)
+      }
+    }
+    appRow.connect('apply', update)
+    appRow.connect('entry-activated', update)
+    validateAppId(settings.get_string('application-id'))
 
     page.add(
       new Adw.PreferencesGroup({
