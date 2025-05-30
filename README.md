@@ -4,11 +4,11 @@ GNOME extension to add to GNOME system search a quick way to run any of your pro
 
 You define root folder and application and the extension add a search through root folder’s children and run selected folder in specified app.
 
-<img src="./example.png" alt="Folder Search Provider" align="right" />
+<img src="./example.png" alt="Folder Search Provider" />
 
 ## App ID
 
-This extension will need App ID of IDE. App ID is filename of `.desktop` files in:
+This extension needs App ID of IDE. App ID is filename of `.desktop` files in:
 - `/usr/share/applications/`
 - `/var/lib/flatpak/exports/share/applications/`
 - `~/.local/share/applications/`
