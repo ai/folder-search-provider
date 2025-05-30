@@ -3,7 +3,6 @@ import Gio from 'gi://Gio'
 export default class FolderProvider {
   constructor(extension) {
     this.extension = extension
-    this.appInfo = extension.getApp().appInfo
   }
 
   activateResult(folder) {
@@ -32,7 +31,7 @@ export default class FolderProvider {
     if (!app || !root) return []
     return terms.reduce(
       (result, term) => result.filter(i => i.toLowerCase().includes(term)),
-      this._loadFolders(root)
+      this.#loadFolders(root)
     )
   }
 
@@ -45,7 +44,7 @@ export default class FolderProvider {
     }))
   }
 
-  _loadFolders(root) {
+  #loadFolders(root) {
     let result = []
     try {
       let enumerator = root.enumerate_children(
