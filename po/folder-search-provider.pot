@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-30 09:44+0900\n"
+"POT-Creation-Date: 2025-05-30 10:19+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,14 +18,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: prefs.js:20
-msgid "Search Folder"
+msgid "Search folders in"
 msgstr ""
 
 #: prefs.js:24
 msgid "Choose"
 msgstr ""
 
-#: prefs.js:29 prefs.js:91
+#: prefs.js:35 prefs.js:91
 msgid "No folder selected"
 msgstr ""
 
@@ -43,4 +43,8 @@ msgstr ""
 
 #: prefs.js:82
 msgid "App ID to run with selected folder"
+msgstr ""
+
+#: prefs.js:105
+msgid "Use the Pin app to check the app ID or create app for custom script"
 msgstr ""

@@ -13,22 +13,15 @@ export default class FolderSearchProviderPreferences extends ExtensionPreference
     let page = new Adw.PreferencesPage()
     window.add(page)
 
-    let group = new Adw.PreferencesGroup()
+    let group = new Adw.PreferencesGroup({})
     page.add(group)
 
     let folderRow = new Adw.ActionRow({
-      title: _('Search Folder')
+      title: _('Search folders in')
     })
 
     let folderButton = new Gtk.Button({
       label: _('Choose'),
-      valign: Gtk.Align.CENTER
-    })
-
-    let folderLabel = new Gtk.Label({
-      label: settings.get_string('root') || _('No folder selected'),
-      css_classes: ['dim-label'],
-      ellipsize: 3,
       valign: Gtk.Align.CENTER
     })
 
@@ -37,7 +30,14 @@ export default class FolderSearchProviderPreferences extends ExtensionPreference
       spacing: 12,
       valign: Gtk.Align.CENTER
     })
-    folderBox.append(folderLabel)
+    folderBox.append(
+      new Gtk.Label({
+        label: settings.get_string('root') || _('No folder selected'),
+        css_classes: ['dim-label'],
+        ellipsize: 3,
+        valign: Gtk.Align.CENTER
+      })
+    )
     folderBox.append(folderButton)
 
     folderRow.add_suffix(folderBox)
@@ -98,5 +98,13 @@ export default class FolderSearchProviderPreferences extends ExtensionPreference
     appRow.connect('entry-activated', () => {
       settings.set_string('application-id', appRow.get_text())
     })
+
+    page.add(
+      new Adw.PreferencesGroup({
+        description: _(
+          'Use the Pin app to check the app ID or create app for custom script'
+        )
+      })
+    )
   }
 }
