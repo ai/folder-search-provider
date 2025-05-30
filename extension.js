@@ -13,11 +13,12 @@ export default class FolderSearchProviderExtension extends Extension {
     this.#settings = this.getSettings()
 
     this.#provider = new FolderProvider(this)
-    this.#provider.appInfo = this.getApp().appInfo
     overview.searchController.addProvider(this.#provider)
 
     this.#watching = this.#settings.connect('changed::application-id', () => {
-      this.#provider.appInfo = this.getApp().appInfo
+      overview.searchController.removeProvider(this.#provider)
+      this.#provider = new FolderProvider(this)
+      overview.searchController.addProvider(this.#provider)
     })
   }
 

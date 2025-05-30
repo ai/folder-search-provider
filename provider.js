@@ -3,6 +3,7 @@ import Gio from 'gi://Gio'
 export default class FolderProvider {
   constructor(extension) {
     this.extension = extension
+    this.appInfo = extension.getApp().appInfo
   }
 
   activateResult(folder) {
