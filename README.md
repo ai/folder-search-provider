@@ -6,6 +6,8 @@ You define root folder and application and the extension add a search through ro
 
 <img src="./example.png" alt="Folder Search Provider" align="right" />
 
+## App ID
+
 This extension will need App ID of IDE. App ID is filename of `.desktop` files in:
 - `/usr/share/applications/`
 - `/var/lib/flatpak/exports/share/applications/`
