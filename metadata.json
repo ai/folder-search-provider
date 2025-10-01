@@ -3,7 +3,7 @@
   "description": "Add to GNOME system search a quick way to run any of your projects in specific IDE",
   "url": "https://github.com/ai/folder-search-provider",
   "uuid": "folder-search-provider@sitnik.ru",
-  "shell-version": ["48"],
+  "shell-version": ["48", "49"],
   "settings-schema": "org.gnome.shell.extensions.folder-search-provider",
   "gettext-domain": "folder-search-provider",
   "donations": {
