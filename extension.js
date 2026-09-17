@@ -1,7 +1,8 @@
 import Gio from 'gi://Gio'
-import { overview } from 'resource:///org/gnome/shell/ui/main.js'
 import Shell from 'gi://Shell'
 import { Extension } from 'resource:///org/gnome/shell/extensions/extension.js'
+import { overview } from 'resource:///org/gnome/shell/ui/main.js'
+
 import FolderProvider from './provider.js'
 
 export default class FolderSearchProviderExtension extends Extension {

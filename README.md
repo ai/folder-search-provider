@@ -6,7 +6,6 @@ You define root folder and application and the extension add a search through ro
 
 <img src="./example.png" alt="Folder Search Provider" />
 
-
 ## Install
 
 [<img src="https://raw.githubusercontent.com/andyholmes/gnome-shell-extensions-badge/master/get-it-on-ego.svg?sanitize=true" height="100">](https://extensions.gnome.org/extension/8227/folder-search-provider/)
@@ -22,6 +21,7 @@ You define root folder and application and the extension add a search through ro
 ## App ID
 
 This extension needs App ID of IDE. App ID is filename of `.desktop` files in:
+
 - `/usr/share/applications/`
 - `/var/lib/flatpak/exports/share/applications/`
 - `~/.local/share/applications/`
